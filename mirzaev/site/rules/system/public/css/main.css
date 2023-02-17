@@ -57,6 +57,37 @@ aside {
   z-index    : 500;
 }
 
+div#wrap {
+  margin-left: 50vw;
+  position: relative;
+  display: flex;
+}
+
+div#wrap>img#masha {
+  z-index: 1500;
+  width: 333px;
+  height: 394px;
+}
+
+div#wrap>img#hand{
+  z-index: 500;
+  left: -30px;
+  bottom: -10px;
+  width: 70px;
+  height: 88px;
+  position: absolute;
+  display: flex;
+}
+
+div#wrap>img#knife {
+  z-index: 100500;
+  left: calc(-112px + 70px - 40px);
+  bottom: calc(-273px + 88px + 30px);
+  width: 112px;
+  height: 273px;
+  position: absolute;
+}
+
 header {
   z-index       : 5000;
   width: 800px;
