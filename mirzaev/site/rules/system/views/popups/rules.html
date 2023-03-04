@@ -1,0 +1,22 @@
+{% block css %}
+<link type="text/css" rel="stylesheet" href="/css/popup.css">
+{% endblock %}
+
+{% block body %}
+<section class="popup">
+  <div class="wrap">
+    <h4>Правила сайта</h4>
+    <ol>
+      <li>Читать правила сайта</li>
+      <li>Читать правила беседы</li>
+      <li>Ознакомиться с правилами</li>
+      <li>Принимая кнопку ниже вы соглашаетесь с правилами</li>
+    </ol>
+    <div class="row separated">
+      <button
+        onclick="troller.instasamka.play(Math.round(Math.random() * 10)); troller.what.play(); this.parentElement.parentElement.parentElement.remove();">Прочитал</button>
+      <button onclick="troller.what.play(); alert('ты идиот?'); this.disabled = true">Не прочитал</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

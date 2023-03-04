@@ -1,0 +1,62 @@
+section.popup {
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000DD;
+}
+
+section.popup>div.wrap {
+  width: 320px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 2px;
+  background-color: var(--background-light);
+}
+
+section.popup>div.wrap>h4 {
+  margin: auto;
+  padding-top: 10px;
+  font-size: 1.6rem;
+}
+
+section.popup>div.wrap>ol {
+  width: 220px;
+  margin: auto;
+  padding: unset;
+  list-style: cjk-earthly-branch;
+}
+
+section.popup>div.wrap>div.row {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+section.popup>div.wrap>div.row.separated:last-child {
+  margin-top: 10px;
+}
+
+section.popup>div.wrap>div.row>button {
+  padding: 6px 20px;
+  border-radius: 2px;
+} 
+
+section.popup>div.wrap>div.row>button:first-child {
+  margin-left: auto;
+}
+
+section.popup>div.wrap>div.row>button:last-child{
+  margin-right: auto;
+}
+
+section.popup>div.wrap>div.row>button[disabled]:is(:hover, :active) {
+  cursor: none;
+}

@@ -1,9 +1,28 @@
 @import url('/fonts/comissioner.ttf');
 
+@keyframes koshka_dancing {
+  100% {
+    bottom: -20px;
+  }
+}
+
+@keyframes hand_dancing {
+  100% {
+    bottom: -20px;
+  }
+}
+
+@keyframes knife_dancing {
+  100% {
+    bottom: calc(-273px + 88px + 20px);
+  }
+}
+
+
 :root {
-  --background-light-3: #403939;
-  --background-light-2: #322d2d;
-  --background-light-1: #2b2525;
+  --button-light-red-active: #eee4e4;
+  --button-light-red-hover: #ddcbcb;
+  --button-light-red: #eadada;
   --background-light  : #fff;
   --background        : #f00;
   --background-dark   : #000;
@@ -44,9 +63,27 @@ a:active {
   color: var(--text-active);
 }
 
+button {
+  cursor: pointer;
+  background-color: var(--button-light-red);
+}
+
+button:hover {
+  background-color: var(--button-light-red-hover);
+}
+
+button:active {
+  background-color: var(--button-light-red-active);
+}
+
+button[disabled]:is(:hover, :active) {
+  cursor: unset;
+  background-color: var(--button-light-red);
+}
+
 body {
   margin               : 0;
-  padding-top: 20vh;
+  padding-top: calc(20vh + 394px);
   padding-bottom: 10vh;
   display: flex;
   flex-direction: column;
@@ -58,34 +95,54 @@ aside {
 }
 
 div#wrap {
+  margin-top: -394px;
   margin-left: 50vw;
-  position: relative;
+  height: 394px;
+  position: absolute;
   display: flex;
 }
 
 div#wrap>img#masha {
   z-index: 1500;
+  bottom: 0px;
   width: 333px;
   height: 394px;
+  position: relative;
+  animation-duration       : 1s;
+  animation-direction: alternate;
+  animation-name           : koshka_dancing;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.65,.05,.36,1);
 }
 
 div#wrap>img#hand{
   z-index: 500;
   left: -30px;
-  bottom: -10px;
+  bottom: -5px;
   width: 70px;
   height: 88px;
   position: absolute;
   display: flex;
+  animation-duration       : .8s;
+  animation-direction: alternate;
+  animation-name           : hand_dancing;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.65,.05,.36,1);
 }
 
 div#wrap>img#knife {
   z-index: 100500;
   left: calc(-112px + 70px - 40px);
-  bottom: calc(-273px + 88px + 30px);
+  bottom: calc(-273px + 88px + 35px);
   width: 112px;
   height: 273px;
   position: absolute;
+  animation-duration       : .8s;
+  animation-direction: alternate;
+  animation-name           : knife_dancing;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(.65,.05,.36,1);
+
 }
 
 header {
