@@ -186,3 +186,9 @@ main>ol>li::marker {
 footer {
   z-index    : 3000;
 }
+
+@media (max-width: 800px) {
+  body {
+    padding-bottom: unset;
+  }
+}

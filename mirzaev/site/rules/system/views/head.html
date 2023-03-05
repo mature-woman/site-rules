@@ -4,7 +4,10 @@
 
 {% block meta %}
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=800px">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="width">
+<meta content='yes' name='apple-mobile-web-app-capable'/>
 {% for meta in head.metas %}
 <meta {% for name, value in meta.attributes %}{{name}}="{{value}}" {% endfor %}>
 {% endfor %}
