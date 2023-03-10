@@ -20,24 +20,24 @@ class troller {
     },
     start() {
       // Отображение изображения
-      document.getElementById("what_image").classList.add("active");
+      document.getElementById("troller_image_what").classList.add("active");
 
         // Проигрывание звука
         troller.what.play(); 
     },
     end() {
       // Сокрытие изображения
-      document.getElementById("what_image").classList.remove("active");
+      document.getElementById("troller_image_what").classList.remove("active");
 
       // Остановка звука
-      document.getElementById("what_sound").pause();
+      document.getElementById("troller_sound_what").pause();
     },
     single(event = "onmouseleave") {
       if (typeof event === "string") {
         // Получены обязательные входные параметры
 
         // Отображение изображения
-        document.getElementById("what_image").classList.add("active");
+        document.getElementById("troller_image_what").classList.add("active");
 
         // Проигрывание звука
         troller.what.play(); 
@@ -51,7 +51,7 @@ class troller {
     },
     play() {
       // Инициализация элемента со звуком
-      const what_sound = document.getElementById("what_sound");
+      const what_sound = document.getElementById("troller_sound_what");
 
       // Воспроизведение звука
       what_sound.currentTime = 0;
@@ -61,7 +61,7 @@ class troller {
 
   static vk() {
     setInterval(function () {
-      const sound = document.getElementById("sound_vk");
+      const sound = document.getElementById("troller_sound_vk");
 
       if (Math.random() > 0.95) {
         // 5%
@@ -75,7 +75,7 @@ class troller {
 
   static whatsapp() {
     setInterval(function () {
-      const sound = document.getElementById("sound_whatsup");
+      const sound = document.getElementById("troller_sound_whatsup");
 
       if (Math.random() > 0.97) {
         // 3%
@@ -89,7 +89,7 @@ class troller {
 
   static iphone() {
     setInterval(function () {
-      const sound = document.getElementById("sound_iphone");
+      const sound = document.getElementById("troller_sound_iphone");
 
       if (Math.random() > 0.98) {
         // 2%
@@ -102,9 +102,9 @@ class troller {
   }
 
   static instasamka = {
-    play(track, time) {
+    play(time) {
       // Инициализация элемента со звуком
-      const sound = document.querySelectorAll('[data-instasamka]')[track];
+      const sound = document.getElementById("troller_sound_instasamka");
 
       if (sound instanceof HTMLElement) {
         // Найден звук
@@ -112,34 +112,17 @@ class troller {
         // Воспроизведение звука
         sound.currentTime = time ?? Math.random() * 100;
         sound.play();
-
-        return;
+      } else {
+        // Не найден звук (подразумевается)
+        
+        console.log('[mirzaev] [troller] Не удалось найти песню инстасамки');
       }
-
-      console.log('[mirzaev] [troller] Не удалось найти песню инстасамки под идентификатором ' + track);
-
-      // Не найден звук (подразумевается)
-      troller.instasamka.play(1, time);
     },
   };
 }
 
-troller.what.enable();
-
-if (Math.random() > 0.60) {
-  // 40%
-
-  troller.vk();
-}
-
-if (Math.random() > 0.60) {
-  // 40%
-
-  troller.whatsapp();
-}
-
-if (Math.random() > 0.60) {
-  // 40%
-
-  troller.iphone();
-}
+document.dispatchEvent(
+  new CustomEvent("troller.loaded", {
+    detail: { troller },
+  }),
+);

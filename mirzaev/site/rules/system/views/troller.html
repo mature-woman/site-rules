@@ -1,0 +1,57 @@
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/css/troller.css" />
+{% endblock %}
+
+{% block body %}
+<img id="troller_image_what" class="hide" src="/images/what.png" />
+<audio id="troller_sound_what" class="hide" src="/sounds/what.mp3" controls></audio>
+{% if troller.vk %}
+<audio id="troller_sound_vk" class="hide" src="/sounds/vk.mp3" controls></audio>
+<script>
+  document.addEventListener('troller.loaded', function (e) {
+    // Загружен документ с классом шутника
+
+    // Активация интервального воспроизведения звука сообщения ВКонтакте
+    e.detail.troller.vk();
+  });
+</script>
+{% endif %}
+{% if troller.whatsapp %}
+<audio id="troller_sound_whatsup" class="hide" src="/sounds/whatsup.mp3" controls></audio>
+<script>
+  document.addEventListener('troller.loaded', function (e) {
+    // Загружен документ с классом шутника
+
+    // Активация интервального воспроизведения звука сообщения WhatsApp
+    e.detail.troller.whatsapp();
+  });
+</script>
+{% endif %}
+{% if troller.iphone %}
+<audio id="troller_sound_iphone" class="hide" src="/sounds/iphone.mp3" controls></audio>
+<script>
+  document.addEventListener('troller.loaded', function (e) {
+    // Загружен документ с классом шутника
+
+    // Активация интервального воспроизведения звука сообщения iPhone
+    e.detail.troller.iphone();
+  });
+</script>
+{% endif %}
+<audio id="troller_sound_instasamka" class="hide" src="/sounds/instasamka/{{ troller.instasamka ?? 1 }}.mp3" preload="auto" loop="true"></audio>
+{% endblock %}
+
+{% block js %}
+<script src="/js/troller.js" defer></script>
+{% endblock %}
+
+{% block js_init %}
+<script>
+  document.addEventListener('troller.loaded', function (e) {
+    // Загружен документ с классом шутника
+
+    // Активация изображения при потере фокуса с окна
+    e.detail.troller.what.enable();
+  });
+</script>
+{% endblock %}
