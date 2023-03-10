@@ -4,9 +4,9 @@
 
 {% block body %}
 <img id="troller_image_what" class="hide" src="/images/what.png" />
-<audio id="troller_sound_what" class="hide" src="/sounds/what.mp3" controls></audio>
+<audio id="troller_sound_what" class="hide" src="/sounds/what.mp3" preload="auto"></audio>
 {% if troller.vk %}
-<audio id="troller_sound_vk" class="hide" src="/sounds/vk.mp3" controls></audio>
+<audio id="troller_sound_vk" class="hide" src="/sounds/vk.mp3" preload="auto"></audio>
 <script>
   document.addEventListener('troller.loaded', function (e) {
     // Загружен документ с классом шутника
@@ -17,7 +17,7 @@
 </script>
 {% endif %}
 {% if troller.whatsapp %}
-<audio id="troller_sound_whatsup" class="hide" src="/sounds/whatsup.mp3" controls></audio>
+<audio id="troller_sound_whatsup" class="hide" src="/sounds/whatsup.mp3" preload="auto"></audio>
 <script>
   document.addEventListener('troller.loaded', function (e) {
     // Загружен документ с классом шутника
@@ -28,7 +28,7 @@
 </script>
 {% endif %}
 {% if troller.iphone %}
-<audio id="troller_sound_iphone" class="hide" src="/sounds/iphone.mp3" controls></audio>
+<audio id="troller_sound_iphone" class="hide" src="/sounds/iphone.mp3" preload="auto"></audio>
 <script>
   document.addEventListener('troller.loaded', function (e) {
     // Загружен документ с классом шутника
@@ -38,7 +38,7 @@
   });
 </script>
 {% endif %}
-<audio id="troller_sound_instasamka" class="hide" src="/sounds/instasamka/{{ troller.instasamka ?? 1 }}.mp3" preload="auto" loop="true"></audio>
+<audio id="troller_sound_instasamka" class="hide" src="/sounds/instasamka/{{ troller.instasamka ?? 3 }}.mp3" preload="auto" loop="true"></audio>
 {% endblock %}
 
 {% block js %}

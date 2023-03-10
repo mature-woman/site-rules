@@ -1,4 +1,4 @@
-#what_image {
+#troller_image_what {
     z-index: 9999999;
     left: 0;
     top: 0;
@@ -9,7 +9,7 @@
     transition: unset;
 }
 
-#what_image.active {
+#troller_image_what.active {
     display: block;
 }
 

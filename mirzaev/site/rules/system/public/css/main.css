@@ -1,4 +1,9 @@
-@import url('/fonts/comissioner.ttf');
+@font-face {
+    font-family: comissioner;
+    src: url('/fonts/commissioner.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @keyframes koshka_dancing {
   100% {
@@ -42,7 +47,7 @@
   outline        : none;
   border         : none;
   color          : var(--text);
-  font-family    : 'Commissioner', Roboto, sans-serif;
+  font-family    : commissioner, Roboto, sans-serif;
   transition     : 0.1s ease-out;
 }
 
@@ -53,6 +58,7 @@
   -moz-user-select     : none;
   -ms-user-select      : none;
   user-select          : none;
+  pointer-events       : none;
 }
 
 a:hover {
