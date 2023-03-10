@@ -3,9 +3,28 @@
 
 {% block body %}
 <div id="wrap" class="unselectable">
-  <img id="masha" src="/images/photo_with_kitten.png" alt="Кошка Маша">
-  <img id="hand" src="/images/photo_with_hand.png" alt="я помню бебра большой">
-  <img id="knife" src="/images/photo_with_knife.png" alt="почему адблок сучара банит мои картинки">
+  <style>
+    @keyframes koshka_dancing {
+      100% {
+        bottom: -{{ random(15, 40) }}px;
+        left: {{ random(-5, 5) }}px;
+      }
+    }
+
+    @keyframes hand_dancing {
+      100% {
+        bottom: -{{ random(10, 22) }}px;
+        left: {{ random(-20, 20) }}px;
+      }
+    }
+  </style>
+  <a href="https://vk.me/join/gbi_1CbxQrWPZsgQsKMO/_GpWEOYy1XWpSU=">
+    <img id="masha" style="animation-duration: {{ random(8, 10) / 10 }}s" src="/images/photo_with_kitten.png" alt="Кошка Маша" ondragstart="return false">
+    <div id="masha_hand" style="animation-duration: {{ random(8, 10) / 10 }}s">
+      <img id="hand" src="/images/photo_with_hand.png" alt="я помню бебра большой" ondragstart="return false">
+      <img id="knife" src="/images/photo_with_knife.png" alt="почему адблок сучара банит мои картинки" ondragstart="return false">
+    </div>
+  </a>
 </div>
 <header>
   <h1 class="unselectable">ПРАВИЛА БЕСЕДЫ</h1>

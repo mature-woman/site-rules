@@ -8,37 +8,38 @@
 {% if troller.vk %}
 <audio id="troller_sound_vk" class="hide" src="/sounds/vk.mp3" preload="auto"></audio>
 <script>
-  document.addEventListener('troller.loaded', function (e) {
-    // Загружен документ с классом шутника
+  document.addEventListener('troller.initialized', function () {
+    // Инициализирован шутник
 
     // Активация интервального воспроизведения звука сообщения ВКонтакте
-    e.detail.troller.vk();
+    bebra.vk();
   });
 </script>
 {% endif %}
 {% if troller.whatsapp %}
 <audio id="troller_sound_whatsup" class="hide" src="/sounds/whatsup.mp3" preload="auto"></audio>
 <script>
-  document.addEventListener('troller.loaded', function (e) {
-    // Загружен документ с классом шутника
+  document.addEventListener('troller.initialized', function () {
+    // Инициализирован шутник
 
     // Активация интервального воспроизведения звука сообщения WhatsApp
-    e.detail.troller.whatsapp();
+    bebra.whatsapp();
   });
 </script>
 {% endif %}
 {% if troller.iphone %}
 <audio id="troller_sound_iphone" class="hide" src="/sounds/iphone.mp3" preload="auto"></audio>
 <script>
-  document.addEventListener('troller.loaded', function (e) {
-    // Загружен документ с классом шутника
+  document.addEventListener('troller.initialized', function () {
+    // Инициализирован шутник
 
     // Активация интервального воспроизведения звука сообщения iPhone
-    e.detail.troller.iphone();
+    bebra.iphone();
   });
 </script>
 {% endif %}
-<audio id="troller_sound_instasamka" class="hide" src="/sounds/instasamka/{{ troller.instasamka ?? 3 }}.mp3" preload="auto" loop="true"></audio>
+<audio id="troller_sound_instasamka" class="hide" src="/sounds/instasamka/{{ troller.instasamka ?? 3 }}.mp3"
+  preload="auto" loop="true"></audio>
 {% endblock %}
 
 {% block js %}
@@ -47,11 +48,20 @@
 
 {% block js_init %}
 <script>
+  // Инициализация переменной шутника в общей области видимости
+  let bebra;
+
   document.addEventListener('troller.loaded', function (e) {
     // Загружен документ с классом шутника
 
+    // Инициализация шутника
+    bebra = new e.detail.troller;
+
+    // Вызов события о том, что шутник инициализирован
+    document.dispatchEvent(new CustomEvent("troller.initialized"));
+
     // Активация изображения при потере фокуса с окна
-    e.detail.troller.what.enable();
+    bebra.what.enable();
   });
 </script>
 {% endblock %}
