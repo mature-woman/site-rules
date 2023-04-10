@@ -42,12 +42,18 @@
   user-select          : none;
 }
 
+
+
+a {
+  color: var(--red-light);
+}
+
 a:hover {
-  color: var(--text-hover);
+  color: var(--red-light-1);
 }
 
 a:active {
-  color: var(--text-active);
+  color: var(--red-dark);
 }
 
 button {
