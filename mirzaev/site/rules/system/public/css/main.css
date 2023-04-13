@@ -175,10 +175,21 @@ main > ol > small {
 main > ol > li {
 	padding-left: 40px;
 	margin-bottom: 8px;
+	display: flow-root list-item;
 }
 
 main > ol > li::marker {
 	/* font-size: 1.3rem; */
+}
+
+main > ol > li :has(img) {
+	display: flow-root list-item;
+}
+
+main > ol > li > img {
+	float: left;
+	margin-top: 5px;
+	max-height: 150px;
 }
 
 footer {
